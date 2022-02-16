@@ -1,8 +1,8 @@
 include:
 - project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
   file: '.gitlab-ci-build-template.yml'
-- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
-  file: '.gitlab-ci-deploy-template.yml'
+#- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
+#  file: '.gitlab-ci-deploy-template.yml'
 
 stages:
 - build-image
