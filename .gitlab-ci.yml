@@ -8,6 +8,7 @@ stages:
 - build-image
 - deploy-image
 
+
 # Trigger Downstream Pipeline
 deploy image:
   stage: deploy-image
