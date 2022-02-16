@@ -1,3 +1,27 @@
 include:
 - project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
   file: '.gitlab-ci-build-template.yml'
+
+
+stages:
+- build-image
+- deploy-image
+
+# Release image when commit to the main branch (e.g. when merge request approved, or directly to the main branch)
+release image:
+  stage: build-image
+  extends: .release_image
+
+build merge request image:
+  stage: build-image
+  extends: .build_mr_image
+
+build qa image:
+  stage: build-image
+  extends: .build_qa_image
+
+deploy image:
+  stage: deploy-image
+  script:
+  - source $VARIABLES_FILE
+  - echo env.$IMAGE $IMAGE

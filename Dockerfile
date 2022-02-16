@@ -1,2 +1,2 @@
 FROM alpine
-CMD ["echo", "Hello Eva on Feature branch!"]
+CMD ["echo", "Hello from Application A on the main branch!"]
