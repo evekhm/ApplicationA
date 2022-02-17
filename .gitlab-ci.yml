@@ -4,3 +4,6 @@ stages:
 nothing:
   stage: do_nothing
   script: echo 'NOTHING'
+  trigger:
+    project: gcp-solutions/hcls/claims-modernization/gitlab-test-examples/deployapplications #use the specific branch to trigger
+    branch: main
