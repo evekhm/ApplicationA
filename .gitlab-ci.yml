@@ -1,9 +1,13 @@
-stages:
-- do_nothing
+include:
+- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
+  file: '.gitlab-ci-build-template.yml'
 
-nothing:
-  stage: do_nothing
-  script: echo 'NOTHING'
-  trigger:
-    project: gcp-solutions/hcls/claims-modernization/gitlab-test-examples/deployapplications #use the specific branch to trigger
-    branch: main
+- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
+  file: '.gitlab-ci-deploy-template.yml'
+
+variables: # TO be passed downstream
+  DEPLOY_PROJECT: gcp-solutions/hcls/claims-modernization/gitlab-test-examples/deployapplications
+
+stages:
+- build-image
+- deploy-image
