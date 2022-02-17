@@ -30,8 +30,10 @@ stages:
     #branch: ${TRIGGER_BRANCH}
 
 deploy to test:
-  environment: test
+#  environment: test
   stage: deploy-image
+  script:
+  - echo 'test'
   trigger:
     project: ${CI_PROJECT_NAMESPACE}/deployapplications
     branch: main
