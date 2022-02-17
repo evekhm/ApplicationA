@@ -19,12 +19,12 @@ deploy_image:
     NAMESPACE: $NAMESPACE
     TRIGGER_BRANCH: $CI_DEFAULT_BRANCH
   before_script:
-  - source $VARIABLES_FILE
+    - source $VARIABLES_FILE
   script:
-  - echo "Deploying image [$IMAGE] to project=[$DEPLOY_PROJECT], branch=[$TRIGGER_BRANCH], namespace=[$NAMESPACE]"
+    - echo "Deploying image [$IMAGE] to project=[$DEPLOY_PROJECT], branch=[$TRIGGER_BRANCH], namespace=[$NAMESPACE]"
   only:
     variables:
-    - $DEPLOY_PROJECT
+      - $DEPLOY_PROJECT
   trigger:
     project: ${CI_PROJECT_NAMESPACE}/deployapplications
     #branch: ${TRIGGER_BRANCH}
