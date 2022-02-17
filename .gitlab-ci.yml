@@ -29,7 +29,7 @@ stages:
 #    project: ${CI_PROJECT_NAMESPACE}/deployapplications
     #branch: ${TRIGGER_BRANCH}
 
-trigger deploy to test:
+deploy to test:
   environment: test
   stage: deploy-image
   trigger:
