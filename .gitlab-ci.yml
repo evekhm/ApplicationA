@@ -5,6 +5,9 @@ include:
 - project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
   file: '.gitlab-ci-deploy-template.yml'
 
+variables:
+  DEPLOY_PROJECT: 'gcp-solutions/hcls/claims-modernization/claims-modernization/gitlab-test-examples/deployapplications'
+
 stages:
 - build-image
 - deploy-image
