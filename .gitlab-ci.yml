@@ -1,30 +1,37 @@
-include:
-- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
-  file: '.gitlab-ci-build-template.yml'
+#include:
+#- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
+#  file: '.gitlab-ci-build-template.yml'
 
 #- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
 #  file: '.gitlab-ci-deploy-template.yml'
 
-variables:
-  DEPLOY_PROJECT: '${CI_PROJECT_NAMESPACE}/deployapplications'
+#variables:
+#  DEPLOY_PROJECT: '${CI_PROJECT_NAMESPACE}/deployapplications'
 
 stages:
-- build-image
+#- build-image
 - deploy-image
 
-deploy_image:
-  variables: # TO be passed downstream
-    APPLICATION: $CI_PROJECT_NAME
-    UPSTREAM_BRANCH: $CI_COMMIT_REF_NAME
-    NAMESPACE: $NAMESPACE
-    TRIGGER_BRANCH: $CI_DEFAULT_BRANCH
-  before_script:
-    - source $VARIABLES_FILE
-  script:
-    - echo "Deploying image [$IMAGE] to project=[$DEPLOY_PROJECT], branch=[$TRIGGER_BRANCH], namespace=[$NAMESPACE]"
-  only:
-    variables:
-      - $DEPLOY_PROJECT
+#deploy_image:
+#  variables: # TO be passed downstream
+#    APPLICATION: $CI_PROJECT_NAME
+#    UPSTREAM_BRANCH: $CI_COMMIT_REF_NAME
+#    NAMESPACE: $NAMESPACE
+#    TRIGGER_BRANCH: $CI_DEFAULT_BRANCH
+#  before_script:
+#    - source $VARIABLES_FILE
+#  script:
+#    - echo "Deploying image [$IMAGE] to project=[$DEPLOY_PROJECT], branch=[$TRIGGER_BRANCH], namespace=[$NAMESPACE]"
+#  only:
+#    variables:
+#      - $DEPLOY_PROJECT
+#  trigger:
+#    project: ${CI_PROJECT_NAMESPACE}/deployapplications
+    #branch: ${TRIGGER_BRANCH}
+
+trigger deploy to test:
+  environment: test
+  stage: deploy-image
   trigger:
     project: ${CI_PROJECT_NAMESPACE}/deployapplications
-    #branch: ${TRIGGER_BRANCH}
+    branch: main
