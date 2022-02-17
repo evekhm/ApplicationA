@@ -1,16 +1,17 @@
 include:
 - project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
   file: '.gitlab-ci-build-template.yml'
-#- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
-#  file: '.gitlab-ci-deploy-template.yml'
+
+- project: 'gcp-solutions/hcls/claims-modernization/gitlab-ci'
+  file: '.gitlab-ci-deploy-template.yml'
 
 stages:
 - build-image
 - deploy-image
 
-# Trigger Downstream Pipeline
-deploy image:
-  stage: deploy-image
-  script:
-  - source $VARIABLES_FILE
-  - echo $IMAGE
+## Trigger Downstream Pipeline
+#deploy image:
+#  stage: deploy-image
+#  script:
+#  - source $VARIABLES_FILE
+#  - echo $IMAGE
