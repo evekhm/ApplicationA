@@ -8,10 +8,10 @@ include:
   file: '.gitlab-ci-deploy-template.yml'
 
 stages:
+- test
 - build-image
 - generate-yml #Dynamically generate file with parameters
 - deploy-image
-- test
 
 
 patch:
