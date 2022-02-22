@@ -16,4 +16,4 @@ stages:
 
 patch:
   stage: test
-  script: echo "test'
+  script: echo "test"
