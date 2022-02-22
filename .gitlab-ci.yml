@@ -11,3 +11,9 @@ stages:
 - build-image
 - generate-yml #Dynamically generate file with parameters
 - deploy-image
+- test
+
+
+patch:
+  stage: test
+  script: echo "test'
