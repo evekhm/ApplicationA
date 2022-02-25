@@ -9,7 +9,6 @@ include:
 
 stages:
 - test
-- build-image
+- build
 - vars #Dynamically generate file with parameters
-- deploy-image
-- deploy-to-test
+- deploy
