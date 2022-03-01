@@ -11,4 +11,3 @@ stages:
 - build
 - vars #Dynamically generate file with parameters
 - deploy
-
